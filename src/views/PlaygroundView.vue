@@ -1,6 +1,7 @@
 <script setup>
 
 import { useCounterStore } from '../stores/counter'
+import PlaygroundItem from '../components/PlaygroundItem.vue'
 
 const store = useCounterStore()
 
@@ -32,5 +33,8 @@ function onButtonClick() {
     <p><input v-model="store.pings" type="number" placeholder="Put a number here"/></p>
     <p>name: {{ store.user.name || '?' }}, surname: {{ store.user.surname || '?' }},
       email: {{ store.user.contacts.email || '?' }}, phone: {{ store.user.contacts.phone || '?' }}</p>
+    <PlaygroundItem
+      :the_prop="store.user.contacts.email"
+    />
   </div>
 </template>
