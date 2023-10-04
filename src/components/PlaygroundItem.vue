@@ -2,7 +2,7 @@
 
 const props = defineProps({
     the_prop: {
-      type: String,
+      type: Object,
       required: true
     }
 })
@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
   <div>
     <p>PlaygoundItem</p>
-    <p>{{ props.the_prop }}</p>
+    <p>{{ JSON.stringify( props.the_prop) }}</p>
   </div>
 </template>
 

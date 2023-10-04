@@ -14,11 +14,13 @@ const emails = [
 
 function onButtonClick() {
   store.increment();
-  store.user.contacts.email = emails[Math.round(Math.random() * (emails.length -1 ))]
   console.log(`Button pressed! store.pings: ${ store.pings }`);
   store.$patch({
     user: {
-      surname: 'Bianchi'
+      surname: 'Bianchi',
+      contacts: {
+        email: emails[Math.round(Math.random() * (emails.length -1 ))]
+      }
     }
   })
 }
@@ -34,7 +36,7 @@ function onButtonClick() {
     <p>name: {{ store.user.name || '?' }}, surname: {{ store.user.surname || '?' }},
       email: {{ store.user.contacts.email || '?' }}, phone: {{ store.user.contacts.phone || '?' }}</p>
     <PlaygroundItem
-      :the_prop="store.user.contacts.email"
+      :the_prop="store.user.contacts"
     />
   </div>
 </template>
