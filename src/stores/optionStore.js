@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('counter', {
+export const useOptionStore = defineStore('option_store', {
   state: () => ({
     user: {
       name: 'Mario',
@@ -18,5 +18,10 @@ export const useCounterStore = defineStore('counter', {
     increment() {
       this.pings++
     }
+  },
+  getters: {
+    fullName(state) {
+      return `${ state.user.name }, ${ state.user.surname }: ${ state.user.contacts.email }`
+    }
   }
-})
+});
